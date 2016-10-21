@@ -36,7 +36,6 @@ export NO_AT_BRIDGE=1
 #
 export MAIL=$HOME/Mail/inbox
 unset MAILCHECK
-# export PRINTER="prn2gang"
 export PRINTER="brother"
 
 #
