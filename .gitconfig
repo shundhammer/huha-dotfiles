@@ -1,0 +1,27 @@
+[user]
+	name = Stefan Hundhammer
+	email = Stefan.Hundhammer@gmx.de
+[core]
+	pager = less -seRFiX
+	# pager = less -R
+	# pager = more
+	excludesfile = "~/.gitexcludes"
+[color]
+	pager = true
+	ui = true
+[alias]
+        co = checkout
+        di = diff
+        ds = diff --stat
+        dh = diff HEAD
+        st = status
+        ci = commit
+        ri = rebase -i
+        k  = !gitk --all
+        br = branch -a
+        logg = log --graph
+[push]
+	default = matching
+[rebase]
+	instructionFormat = %ci %ae %s
+

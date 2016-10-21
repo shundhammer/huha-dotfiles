@@ -1,0 +1,93 @@
+!
+!	.Xdefaults
+!
+!	Stand: 24.8.2000
+!	Autor: Stefan Hundhammer <sh@suse.de>
+!
+
+
+! *background:			grey80
+! *foreground:			black
+
+XTerm*saveLines	 :		500
+XTerm*borderWidth:		4
+XTerm*scrollBar:		on
+XTerm*background:		white
+XTerm*foreground:		black
+XTerm*cursorColor:		red
+XTerm*pointerColor:		sea green
+XTerm*vt100*geometry:		80x40
+
+
+!xosview*geometry:		200x100-0-0
+! xosview*geometry:		220x94-3-3
+xosview*swap:			true
+xosview*page:			true
+xosview*interrupts:		False
+xosview*net:			False
+xosview*disk:			False
+! xosview*background:		#008080
+xosview*background:		grey40
+xosview*foreground:		#004040
+xosview*captions:		False
+xosview*loadIdleColor:		#00B0B0
+xosview*cpuFreeColor:		#00B0B0
+xosview*memFreeColor:		#00B0B0
+xosview*memCacheColor:		#006060
+xosview*swapFreeColor:		#00B0B0
+xosview*swapUsedColor:		#E38110
+xosview*swapDecay:		True
+xosview*pageIdleColor:		#00B0B0
+! Disabling "net" might require patching the wrapper script for "xosview"
+! (/usr/X11R6/bin/xosview) in a SuSE environment: This script adds "+net" to
+! the command line which has precedence over X resources.
+
+
+
+!
+! *** Emacs ***
+!
+! emacs.background:		papaya whip
+! emacs.background:		blanched almond
+! emacs.background:		wheat
+emacs*background:                     burlywood
+emacs.cursorColor:                    red
+emacs.pointerColor:                   forest green
+emacs.internalBorder:                 5
+emacs.bitmapIcon:                     on
+emacs.toolBar:                        0
+emacs*mode-line.attributeBackground:  sienna4
+emacs*mode-line.attributeForeground:  burlywood1
+emacs*Scrollbar*background:           burlywood
+emacs*ScrollbarBackground:            burlywood1
+emacs*ScrollbarForeground:            burlywood
+! see also initial-frame-alist in colors.el
+! emacs.geometry:                       80x60
+
+! Not used - use the menu instead
+! emacs*font:                           Monospace-10
+
+
+
+!	editres*resourceBox.geometry:			780x670
+!	editres*resourceBox*valueForm.min:		35
+!	editres*resourceBox*valueForm.max:		35
+!	editres*resourceBox*valueForm.height:		35
+!	editres*resourceBox*valueForm.allowResize:	True
+
+*keyboardFocusPolicy:		explicit
+
+
+!
+! Font antialiasing settings
+!
+
+*customization:	-color
+Xft.antialias:	1
+Xft.dpi:	96
+Xft.hinting:	1
+Xft.hintstyle:	hintslight
+Xft.rgba:	none
+
+
+! <EOF>
