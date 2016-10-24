@@ -69,8 +69,7 @@ export PATH
 export LD_LIBRARY_PATH=/usr/lib:/usr/X11R6/lib:/usr/local/lib
 export SHELL=/usr/bin/zsh
 export CPU_COUNT=`grep -c '^processor' /proc/cpuinfo`
-# export MAKE_JOBS=$CPU_COUNT
-export MAKE_JOBS=16
+export MAKE_JOBS=$CPU_COUNT
 export GREP_OPTIONS='--color=auto'
 
 #
