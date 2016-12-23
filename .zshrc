@@ -185,12 +185,13 @@ function ec	{ emacsclient --no-wait $*	}
 function f	{ find . -name $1 -print	}
 function findrm	{ find . -name $1 -print -exec rm -f {} \;		}
 function ficd	{ cd `find . -type f -name $1 -printf "%h\n"`; pwd	}
-function l	{ ls $LSFLAGS -l  $*	| sed -e 's/ -> .*/ -> .../'	| $SHELL_PAGER	}
-function lc	{ ls $LSFLAGS -C  $*					| $SHELL_PAGER	}
-function ldir	{ ls $LSFLAGS -lg $*	| grep "^d"			| $SHELL_PAGER	}
-function ll	{ ls $LSFLAGS -al $*					| $SHELL_PAGER	}
+function l	{ ls $LSFLAGS -lh  $*	| sed -e 's/ -> .*/ -> .../'	| $SHELL_PAGER	}
+function lc	{ ls $LSFLAGS -C   $*					| $SHELL_PAGER	}
+function ldir	{ ls $LSFLAGS -lg  $*	| grep "^d"			| $SHELL_PAGER	}
+function ll	{ ls $LSFLAGS -al  $*					| $SHELL_PAGER	}
 function lx	{ ls $LSFLAGS -l	| grep "^-..x"			| $SHELL_PAGER	}
 function pwd	{ /bin/pwd $* }
+function man	{ LC_MESSAGES=C /usr/bin/man $* }
 
 
 #
