@@ -70,7 +70,6 @@ export LD_LIBRARY_PATH=/usr/lib:/usr/X11R6/lib:/usr/local/lib
 export SHELL=/usr/bin/zsh
 export CPU_COUNT=`grep -c '^processor' /proc/cpuinfo`
 export MAKE_JOBS=$CPU_COUNT
-export GREP_OPTIONS='--color=auto'
 
 #
 # Zsh special
@@ -192,6 +191,7 @@ function ll	{ ls $LSFLAGS -al  $*					| $SHELL_PAGER	}
 function lx	{ ls $LSFLAGS -l	| grep "^-..x"			| $SHELL_PAGER	}
 function pwd	{ /bin/pwd $* }
 function man	{ LC_MESSAGES=C /usr/bin/man $* }
+function grep   { /bin/grep --color=auto $* }
 
 
 #
