@@ -14,17 +14,9 @@ export QT_SELECT="qt5"
 export KDEDIR=/opt/kde3
 export YAST2HOME=/usr/lib/YaST2
 # export Y2DEBUG
-export CVSROOT=":pserver:${USER}@yast2-cvs.suse.de:/real-home/CVS/YaST2"
-export KD_CVSROOT=":ext:hundhammer@cvs.kdirstat.sourceforge.net:/cvsroot/kdirstat"
-export CVS_RSH="ssh"
+
 export Y2SLOG_FILE=~/.y2log
 export ZYPP_KEYRING_DEFAULT_ACCEPT_ALL=1
-
-# export Y2SCREENSHOTS=~/Export/yast2-screen-shots/
-# export BUILD_DIST=x86_64
-# export Y2SLOG_DEBUG=0
-# cdpath=(~ ~/yast2 ~/yast2/source ~/yast2/modules)
-# limit coredumpsize 200M
 
 # Suppress Emacs complaints about 
 # "Couldn't register with accessibility bus"
@@ -34,7 +26,6 @@ export NO_AT_BRIDGE=1
 #
 # Personal stuff
 #
-export MAIL=$HOME/Mail/inbox
 unset MAILCHECK
 export PRINTER="brother"
 
