@@ -36,7 +36,8 @@ export LSFLAGS="--color=always"
 export PAGER="less -s "
 export LESS="-i"
 export LESSHELP=/usr/local/lib/less.hlp
-
+export XCURSOR_THEME="DMZ-White"
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 #
 # System stuff
@@ -183,6 +184,7 @@ function lx	{ ls $LSFLAGS -l	| grep "^-..x"			| $SHELL_PAGER	}
 function pwd	{ /bin/pwd $* }
 function man	{ LC_MESSAGES=C /usr/bin/man $* }
 function grep   { /bin/grep --color=auto $* }
+function df     { /bin/df -x tmpfs -x devtmpfs -h $* }
 
 
 #
