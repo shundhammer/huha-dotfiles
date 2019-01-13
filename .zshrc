@@ -104,7 +104,8 @@ function echo_and_do()
 #
 function xterm_title()
 {	
-    if [ "$TERM" = "xterm" ]; then
+    # [[ is the zsh enhanced equivalent of /bin/test
+    if [[ "$TERM" =~ "^xterm" ]]; then
 	echo -n "\033]0;$*\007"
     fi
 }
