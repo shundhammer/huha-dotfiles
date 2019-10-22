@@ -9,68 +9,76 @@
 #
 # Paths
 #
-export QTDIR=/usr/lib/qt5
-export QT_SELECT="qt5"
-export KDEDIR=/opt/kde3
 export YAST2HOME=/usr/lib/YaST2
 # export Y2DEBUG
-export CVSROOT=":pserver:${USER}@yast2-cvs.suse.de:/real-home/CVS/YaST2"
-export KD_CVSROOT=":ext:hundhammer@cvs.kdirstat.sourceforge.net:/cvsroot/kdirstat"
-export CVS_RSH="ssh"
 export Y2SLOG_FILE=~/.y2log
-export ZYPP_KEYRING_DEFAULT_ACCEPT_ALL=1
-
-# export Y2SCREENSHOTS=~/Export/yast2-screen-shots/
+export Y2SLOG_FILE=/space/log/YaST2/y2log
 # export BUILD_DIST=x86_64
 # export Y2SLOG_DEBUG=0
-# cdpath=(~ ~/yast2 ~/yast2/source ~/yast2/modules)
+
+cdpath=(~/src/yast ~/src/misc)
 # limit coredumpsize 200M
-
-# Suppress Emacs complaints about 
-# "Couldn't register with accessibility bus"
-export NO_AT_BRIDGE=1
-
 
 #
 # Personal stuff
 #
-export MAIL=$HOME/Mail/inbox
 unset MAILCHECK
-export PRINTER="brother"
 
 #
 # Misc command settings
 #
 export LSFLAGS="--color=always"
-export PAGER="less -s "
+export PAGER="less"
 export LESS="-i"
 export LESSHELP=/usr/local/lib/less.hlp
+export KDE3DIR=/opt/kde3
+export QTDIR=/usr/lib64/qt5
+export MAN_POSIXLY_CORRECT=1
+export G_DEBUG=""
 
+# Make Emacs shut up about accessibility stuff
+export NO_AT_BRIDGE=1
 
 #
 # System stuff
 #
 PATH=.
-PATH=${PATH}:${KDEDIR}/bin
-PATH=${PATH}:${HOME}/util
+PATH=${PATH}:${HOME}/bin
+PATH=${PATH}:${KDE3DIR}/bin
 PATH=${PATH}:${HOME}/perl
-PATH=${PATH}:/work/photos/util
 PATH=${PATH}:/usr/local/bin
+PATH=${PATH}:${QTDIR}/bin
 PATH=${PATH}:/usr/bin
 PATH=${PATH}:/bin
 PATH=${PATH}:/sbin
 PATH=${PATH}:/usr/sbin
 PATH=${PATH}:/usr/X11R6/bin
-PATH=${PATH}:/opt/gnome/bin
 PATH=${PATH}:/usr/share/YaST2/data/devtools/bin
-PATH=${PATH}:/usr/games
+# PATH=${PATH}:${HOME}/space/coverity/cov-analysis-linux64-8.7.0/bin
 export PATH
- 
-export LD_LIBRARY_PATH=/usr/lib:/usr/X11R6/lib:/usr/local/lib
+
+# export LD_LIBRARY_PATH=/usr/lib:/usr/X11R6/lib:/usr/local/lib
+export LD_LIBRARY_PATH=/usr/local/lib64:/usr/lib64:/usr/X11R6/lib64
 export SHELL=/usr/bin/zsh
 export CPU_COUNT=`grep -c '^processor' /proc/cpuinfo`
-export MAKE_JOBS=$CPU_COUNT
-export GREP_OPTIONS='--color=auto'
+export MAKE_JOBS=$(( CPU_COUNT*3 ))
+
+export LANG="de_DE.utf8"
+export LC_CTYPE="de_DE.UTF-8"
+export LC_NUMERIC="en_US.utf8"
+export LC_TIME="de_DE.utf8"
+export LC_COLLATE="de_DE.utf8"
+export LC_MONETARY="de_DE.utf8"
+export LC_MESSAGES="en_US.utf8"
+export LC_PAPER="de_DE.utf8"
+export LC_NAME="de_DE.utf8"
+export LC_ADDRESS="de_DE.utf8"
+export LC_TELEPHONE="de_DE.utf8"
+export LC_MEASUREMENT="de_DE.utf8"
+export LC_IDENTIFICATION="de_DE.utf8"
+export LC_ALL=""
+# export LC_ALL="de_DE.UTF-8"
+
 
 #
 # Zsh special
@@ -79,11 +87,12 @@ export GREP_OPTIONS='--color=auto'
 # Prompt - see 'man zshmisc' for prompt options
 # prompt="%B[%n @ %m] %30<...< %~ %#%b "
 setopt PROMPT_BANG
-prompt="%B[%n @ %m] %(3~,...%3~,%~) ! %#%b "
+# prompt="%B[%n @ %m] %(3~,...%3~,%~) ! %#%b "
+prompt="%B[%n @ %m] %(3~,...%3~,%~) %#%b "
 
 # Right prompt
 # RPROMPT="[zsh]"
-unset RPROMPT
+# unset RPROMPT
 
 
 # History recording to a file is a major security leak. Disable that.
@@ -113,8 +122,8 @@ function echo_and_do()
 # Change the xterm's title bar
 #
 function xterm_title()
-{	
-    if [ "$TERM" = "xterm" ]; then
+{
+    if [ "$TERM" = "xterm" -o "$TERM" = "xterm-256color" ]; then
 	echo -n "\033]0;$*\007"
     fi
 }
@@ -124,7 +133,12 @@ function xterm_title()
 #
 function default_xterm_title()
 {
-    xterm_title "${USER}@${HOST}:${PWD}   [zsh]"
+    if [[ "$PWD" =~ ".*/src/yast/" ]]; then
+        dir=${PWD/*\/src\/yast\//}
+        xterm_title "$dir"
+    else
+        xterm_title "${USER}@${HOST}:${PWD}   [zsh]"
+    fi
 }
 
 #
@@ -179,12 +193,20 @@ function ssh()
 
 
 SHELL_PAGER='more'
+export QT_QPA_PLATFORMTHEME=qt5ct
 
-function e	{ emacs $* &			}
-function ec	{ emacsclient --no-wait $*	}
-function f	{ find . -name $1 -print	}
-function findrm	{ find . -name $1 -print -exec rm -f {} \;		}
+# Override bad default aliases from /etc/profile.d/ls.bash
+unalias l
+unalias ll
+
+# function e      { LANG=C emacs $* 2>&1 | egrep -v '(Successfully activated|Activating service)' & }
+function e      { LANG=C emacs $* & }
+function ec	{ LANG=C emacsclient --no-wait $*	}
+function f	{ find . -name $1 -print		}
+function findrm	{ find . -xdev -name $1 -print -exec rm -f {} \;	}
 function ficd	{ cd `find . -type f -name $1 -printf "%h\n"`; pwd	}
+function df     { /bin/df -x tmpfs -x devtmpfs -h $*	}
+function git    { LANG=C /usr/bin/git $* }
 function l	{ ls $LSFLAGS -l  $*	| sed -e 's/ -> .*/ -> .../'	| $SHELL_PAGER	}
 function lc	{ ls $LSFLAGS -C  $*					| $SHELL_PAGER	}
 function ldir	{ ls $LSFLAGS -lg $*	| grep "^d"			| $SHELL_PAGER	}
@@ -213,6 +235,7 @@ alias his=history
 alias konq='konqueror'
 alias ntop='sudo ntop -i eth0'
 alias ..='cd ..'
+alias isc='osc -A ibs'
 # unalias which
 
 
@@ -237,7 +260,7 @@ bindkey "^[OB" history-beginning-search-forward-end
 
 
 #
-# Misc init stuff 
+# Misc init stuff
 #
 
 umask 002
@@ -269,7 +292,7 @@ unsetopt hup
 
 
 
-# The nice ZSH completion
+# zsh completion
 autoload -U compinit
 compinit
 
