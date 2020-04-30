@@ -76,6 +76,10 @@ prompt="%B[%n @ %m] %(3~,...%3~,%~) ! %#%b "
 # RPROMPT="[zsh]"
 unset RPROMPT
 
+# Fix numeric keypad Enter not working
+# (Hit Ctrl-V and then the key to find out keycodes)
+bindkey -s "^[OM" "^M"
+
 
 # History recording to a file is a major security leak. Disable that.
 SAVEHIST=0
