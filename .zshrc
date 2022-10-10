@@ -11,7 +11,6 @@
 #
 export QTDIR=/usr/lib/qt5
 export QT_SELECT="qt5"
-export KDEDIR=/opt/kde3
 export YAST2HOME=/usr/lib/YaST2
 # export Y2DEBUG
 
@@ -36,14 +35,12 @@ export LSFLAGS="--color=always"
 export PAGER="less -s "
 export LESS="-i"
 export LESSHELP=/usr/local/lib/less.hlp
-export XCURSOR_THEME="DMZ-White"
-export QT_QPA_PLATFORMTHEME=qt5ct
+# export QT_QPA_PLATFORMTHEME=qt5ct
 
 #
 # System stuff
 #
 PATH=.
-PATH=${PATH}:${KDEDIR}/bin
 PATH=${PATH}:${HOME}/util
 PATH=${PATH}:${HOME}/perl
 PATH=${PATH}:/work/photos/util
@@ -53,8 +50,6 @@ PATH=${PATH}:/bin
 PATH=${PATH}:/sbin
 PATH=${PATH}:/usr/sbin
 PATH=${PATH}:/usr/X11R6/bin
-PATH=${PATH}:/opt/gnome/bin
-PATH=${PATH}:/usr/share/YaST2/data/devtools/bin
 PATH=${PATH}:/usr/games
 export PATH
  
@@ -181,7 +176,6 @@ function ec	{ emacsclient --no-wait $*	}
 function f	{ find . -name $1 -print	}
 function findrm	{ find . -name $1 -print -exec rm -f {} \;		}
 function ficd	{ cd `find . -type f -name $1 -printf "%h\n"`; pwd	}
-function ls	{ /bin/ls $LSFLAGS $*           }
 function l	{ /bin/ls $LSFLAGS -lh  $*	| sed -e 's/ -> .*/ -> .../'	| $SHELL_PAGER	}
 function lc	{ /bin/ls $LSFLAGS -C   $*					| $SHELL_PAGER	}
 function ldir	{ /bin/ls $LSFLAGS -lg  $*	| grep "^d"			| $SHELL_PAGER	}
@@ -210,7 +204,6 @@ alias mkc='echo_and_do "make -f Makefile.cvs"'
 alias mki='echo_and_do "make -j${MAKE_JOBS} && sudo make install"'
 alias mka='echo_and_do "make -f Makefile.cvs && make -j${MAKE_JOBS} && sudo make install"'
 alias his=history
-alias konq='konqueror'
 alias ntop='sudo ntop -i eth0'
 alias ..='cd ..'
 # unalias which
