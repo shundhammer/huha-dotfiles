@@ -17,6 +17,8 @@ XTerm*foreground:		black
 XTerm*cursorColor:		red
 XTerm*pointerColor:		sea green
 XTerm*vt100*geometry:		80x40
+XTerm*faceName:                 DejaVu Sans Mono
+XTerm*faceSize:                 12
 
 
 !xosview*geometry:		200x100-0-0
