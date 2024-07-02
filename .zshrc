@@ -44,6 +44,7 @@ PATH=.
 PATH=${PATH}:${HOME}/util
 PATH=${PATH}:${HOME}/perl
 PATH=${PATH}:/work/photos/util
+PATH=${PATH}:/work/src/yast/y2log-util/scripts
 PATH=${PATH}:/usr/local/bin
 PATH=${PATH}:/usr/bin
 PATH=${PATH}:/bin
@@ -57,6 +58,26 @@ export LD_LIBRARY_PATH=/usr/lib:/usr/X11R6/lib:/usr/local/lib
 export SHELL=/usr/bin/zsh
 export CPU_COUNT=`grep -c '^processor' /proc/cpuinfo`
 export MAKE_JOBS=$CPU_COUNT
+
+export LC_MESSAGES="en_US.utf8"
+export LC_NUMERIC="en_US.utf8"
+export LANG="en_US.utf8"
+
+export LC_TIME="de_DE.utf8"
+export LC_COLLATE="de_DE.utf8"
+export LC_MONETARY="de_DE.utf8"
+export LC_PAPER="de_DE.utf8"
+export LC_NAME="de_DE.utf8"
+export LC_ADDRESS="de_DE.utf8"
+export LC_TELEPHONE="de_DE.utf8"
+export LC_MEASUREMENT="de_DE.utf8"
+export LC_IDENTIFICATION="de_DE.utf8"
+
+export PAPERSIZE="a4"
+
+# Don't override my settings with random crap from somewhere
+unset LANGUAGE
+
 
 #
 # Zsh special
@@ -206,6 +227,7 @@ alias mka='echo_and_do "make -f Makefile.cvs && make -j${MAKE_JOBS} && sudo make
 alias his=history
 alias ntop='sudo ntop -i eth0'
 alias ..='cd ..'
+alias isc='osc -A ibs'
 # unalias which
 
 
@@ -262,7 +284,7 @@ unsetopt hup
 
 
 
-# The nice ZSH completion
+# ZSH completion
 autoload -U compinit
 compinit
 
