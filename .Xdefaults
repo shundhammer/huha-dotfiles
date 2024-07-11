@@ -85,8 +85,15 @@ emacs*ScrollbarForeground:            burlywood
 !
 
 *customization:	-color
+
+! 94 dpi for a 24" desktop PC screen, rounded up to 96 (modulo 8).
+! Use 'xrandr' to find out the screen size in mm.
+! The Xft.dpi value is used by Gtk applications (e.g. Firefox)
+! for the initial font size.
+
+Xft.dpi:	96	! 4" Eizo TFT (desktop PC)
+! Xft.dpi:	160	! Lenovo X1 Carbon laptop (uruk)
 Xft.antialias:	1
-Xft.dpi:	96
 Xft.hinting:	1
 Xft.hintstyle:	hintslight
 Xft.rgba:	none
