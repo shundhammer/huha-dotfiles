@@ -209,7 +209,7 @@ function lx	{ /bin/ls $LSFLAGS -l	| grep "^-..x"                          | $SHE
 function pwd	{ /bin/pwd $* }
 function man	{ LC_MESSAGES=C /usr/bin/man $* }
 function grep   { /bin/grep --color=auto $* }
-function df     { /bin/df -x tmpfs -x devtmpfs -h $* }
+function df     { /bin/df -x tmpfs -x devtmpfs -h -x efivarfs $* }
 
 
 #
