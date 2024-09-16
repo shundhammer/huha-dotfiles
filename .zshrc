@@ -192,6 +192,10 @@ function ssh()
 
 SHELL_PAGER='more'
 
+# Do not mess up my definitions with aliases from other places
+unalias l
+unalias ll
+
 function e	{ emacs $* &			}
 function ec	{ emacsclient --no-wait $*	}
 function f	{ find . -name $1 -print	}
