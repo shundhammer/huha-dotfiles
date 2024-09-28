@@ -192,15 +192,16 @@ function ssh()
 
 SHELL_PAGER='more'
 
-# Do not mess up my definitions with aliases from other places
-unalias l
-unalias ll
+# Do not mess up my definitions with aliases from random places
+unalias l ll la ls-l dir you o md rd cd.. unmount which-command 2>/dev/null
 
 function e	{ emacs $* &			}
 function ec	{ emacsclient --no-wait $*	}
 function f	{ find . -name $1 -print	}
 function findrm	{ find . -name $1 -print -exec rm -f {} \;		}
 function ficd	{ cd `find . -type f -name $1 -printf "%h\n"`; pwd	}
+function ls	{ /bin/ls $LSFLAGS     $* }
+function la	{ /bin/ls $LSFLAGS -a  $* }
 function l	{ /bin/ls $LSFLAGS -lh  $*	| sed -e 's/ -> .*/ -> .../'	| $SHELL_PAGER	}
 function lc	{ /bin/ls $LSFLAGS -C   $*					| $SHELL_PAGER	}
 function ldir	{ /bin/ls $LSFLAGS -lg  $*	| grep "^d"			| $SHELL_PAGER	}
@@ -224,6 +225,7 @@ export PERIOD=5
 #
 # Aliases
 #
+
 alias mk='echo_and_do "make -j${MAKE_JOBS}"'
 alias mkc='echo_and_do "make -f Makefile.cvs"'
 alias mki='echo_and_do "make -j${MAKE_JOBS} && sudo make install"'
@@ -232,7 +234,6 @@ alias his=history
 alias ntop='sudo ntop -i eth0'
 alias ..='cd ..'
 alias isc='osc -A ibs'
-# unalias which
 
 
 #
