@@ -25,3 +25,5 @@
 [rebase]
 	instructionFormat = %ci %ae %s
 
+[init]
+	defaultBranch = master
