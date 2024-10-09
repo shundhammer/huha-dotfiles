@@ -211,6 +211,7 @@ function pwd	{ /bin/pwd $* }
 function man	{ LC_MESSAGES=C /usr/bin/man $* }
 function grep   { /bin/grep --color=auto $* }
 function df     { /bin/df -x tmpfs -x devtmpfs -h -x efivarfs $* }
+function lsblk  { /bin/lsblk -o NAME,SIZE,FSTYPE,LABEL,MOUNTPOINTS }
 
 
 #
