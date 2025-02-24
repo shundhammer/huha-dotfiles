@@ -35,7 +35,8 @@ export LSFLAGS="--color=always"
 export PAGER="less -s "
 export LESS="-i"
 export LESSHELP=/usr/local/lib/less.hlp
-# export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_ENABLE_HIGHDPI_SCALING=0
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 #
 # System stuff
