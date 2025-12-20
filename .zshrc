@@ -9,8 +9,9 @@
 #
 # Paths
 #
-export QTDIR=/usr/lib/qt5
-export QT_SELECT="qt5"
+
+# export QTDIR=/usr/lib/qt5
+# export QT_SELECT="qt5"
 export YAST2HOME=/usr/lib/YaST2
 # export Y2DEBUG
 
@@ -35,8 +36,10 @@ export LSFLAGS="--color=always"
 export PAGER="less -s "
 export LESS="-i"
 export LESSHELP=/usr/local/lib/less.hlp
+export LESSHISTSIZE=0
+export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_ENABLE_HIGHDPI_SCALING=0
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_SCALE_FACTOR=1
 
 #
 # System stuff
