@@ -1,4 +1,4 @@
-" vi.exrv fuer vi
+" vi.exrc fuer vi
 " Author: Klaus Franken, kfr@suse.de
 " Version: 06.06.97
 
@@ -21,6 +21,8 @@ set showmatch
 
 " anzeige INSERT/REPLACE/...
 set showmode
+
+set viminfo=""
 
 " Tastatur-Belegung fuer diverse  vi's
 " Autor: Werner Fink   <werner@suse.de> 
